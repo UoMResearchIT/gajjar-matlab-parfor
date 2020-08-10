@@ -5,7 +5,6 @@ function [D]= tpar(N,NZ,tmax,tw,ntw)
     
     for kk=1:N
         for jj=2:tmax
-            t=jj*dt;
             jwrite=mod(jj,tw);
             njw=floor(jj/tw);
             if(jwrite==0)
