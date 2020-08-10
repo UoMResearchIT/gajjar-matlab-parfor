@@ -1,5 +1,4 @@
 function [D]= tpar(N,NZ,tmax,tw,ntw)
-    dt = 0.1;
     D = zeros(N,NZ,ntw);
     ll = 1:NZ;
     
