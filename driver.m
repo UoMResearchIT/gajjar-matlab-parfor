@@ -4,5 +4,5 @@ tmax=60;
 tw=20;
 ntw=tmax/tw;
 
-disp=zeros(N,NZ,ntw)
-[disp]=tpar(N,NZ,tmax,tw,ntw);
+result = tpar(N,NZ,tmax,tw,ntw);
+disp(result)
