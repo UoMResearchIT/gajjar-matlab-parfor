@@ -1,8 +1,9 @@
 function [D]= tpar(N,NZ,tmax,tw,ntw)
     dt = 0.1;
     D = zeros(N,NZ,ntw);
+    ll = 1:NZ;
+    
     for kk=1:N
-        ll=1:NZ;
         for jj=2:tmax
             t=jj*dt;
             jwrite=mod(jj,tw);
