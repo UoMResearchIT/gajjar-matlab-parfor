@@ -2,14 +2,15 @@ function [D]= tpar(N,NZ,tmax,tw,ntw)
     D = zeros(N,NZ,ntw);
     ll = 1:NZ;
 
-    parfor kk=1:N
+    tvals = 2:tmax;
+    njws = floor(tvals/tw);
+    jwrites = mod(tvals,tw);
+    njw_values = njws(jwrites == 0);
+
+    for kk=1:N
         temp = zeros(NZ, ntw);
-        for jj=2:tmax
-            jwrite=mod(jj,tw);
-            njw=floor(jj/tw);
-            if(jwrite==0)
-                temp(:, njw) = kk+(ll-1)*N+njw;
-            end
+        for njw_val = njw_values
+            temp(:, njw_val) = kk + (ll - 1) * N + njw_val;
         end
         D(kk, :, :) = temp;
     end
