@@ -7,7 +7,6 @@ function [D]= tpar(N,NZ,tmax,tw,ntw)
     jwrites = mod(tvals,tw);
     njw_values = njws(jwrites == 0);
 
-    for kk=1:N
-        D(kk, :, :) = repmat(kk + (ll' - 1) * N, 1, 3) + njw_values;
-    end
+    njw_vec_values = permute(repmat((njw_values)', [1, N, 3]), [2, 3 ,1]);
+    D = repmat((ll - 1) * N, [N, 1, 3]) + (1:N)' + njw_vec_values;
 end
