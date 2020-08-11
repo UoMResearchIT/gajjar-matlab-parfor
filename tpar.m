@@ -8,10 +8,6 @@ function [D]= tpar(N,NZ,tmax,tw,ntw)
     njw_values = njws(jwrites == 0);
 
     for kk=1:N
-        temp = zeros(NZ, ntw);
-        for njw_val = njw_values
-            temp(:, njw_val) = kk + (ll - 1) * N + njw_val;
-        end
-        D(kk, :, :) = temp;
+        D(kk, :, :) = repmat(kk + (ll' - 1) * N, 1, 3) + njw_values;
     end
 end
